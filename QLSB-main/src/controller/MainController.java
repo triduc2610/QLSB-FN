@@ -522,6 +522,8 @@ public class MainController {
 
         productView.setSaveAction(e -> {
             productController.processSaveProduct();
+            productView.setVisible(false);
+            mainView.showPanel("productListView");
         });
 
         // Gán action cho các nút trên ProductListView (chỉnh sửa)
@@ -533,5 +535,4 @@ public class MainController {
             productListView.showDialog(false);
         });
     }
-
 }

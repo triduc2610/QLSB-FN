@@ -18,16 +18,21 @@ public class ProductController {
         this.productView = productView;
     }
 
-    public void processSaveProduct() {
+   public void processSaveProduct() {
         Product productData = productView.getProductData();
+        if(productData == null){
+            return;
+        }
+        if(productService.isProductNameExists(productData.getName())) {
+                productView.displayError("Tên sản phẩm đã tồn tại. Vui lòng chọn tên khác.");
+                return;
+        }
         try {
+            productView.clear();
             if (productService.addProduct(productData)) {
                 productView.displayProductCreationSuccess(productData);
-                productListView.showSuccess("Thêm sản phẩm thành công");
                 refreshProduct();
-            } else {
-                productView.displayError("Sản phẩm đã tồn tại");
-            }
+            }       
         } catch (Exception e) {
             productView.displayError("Lỗi khi tạo sản phẩm: " + e.getMessage());
         }

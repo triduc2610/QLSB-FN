@@ -65,6 +65,10 @@ public class ProductService {
     public Product getProductByName(String name) {
         return productDAO.findByName(name);
     }
+    
+    public boolean isProductNameExists(String name) {
+        return productDAO.findByName(name) != null;
+    }
 
 }
 
