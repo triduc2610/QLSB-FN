@@ -102,7 +102,7 @@ public class ReportView extends JPanel {
     startDateChooser.setDateFormatString("dd/MM/yyyy");
     endDateChooser.setDateFormatString("dd/MM/yyyy");
     LocalDateTime now = LocalDateTime.now();
-    startDateChooser.setDate(DateTimeUtils.toDate(now.withDayOfMonth(1))); 
+    startDateChooser.setDate(DateTimeUtils.toDate(now.withDayOfMonth(1)));
     endDateChooser.setDate(DateTimeUtils.toDate(now.withDayOfMonth(now.toLocalDate().lengthOfMonth())));
 
     filterDateButton = createStyledButton("Lọc");
@@ -330,6 +330,10 @@ public class ReportView extends JPanel {
 
   public void setPitchChangeAction(ActionListener listener) {
     pitchComboBox.addActionListener(listener);
+  }
+
+  public void resetPitchSelection() {
+    pitchComboBox.setSelectedItem("Tất cả");
   }
   // #endregion
 

@@ -93,6 +93,11 @@ public class ReportController {
         processFilter();
     }
 
+    public void resetPitchSelection() {
+        reportView.resetPitchSelection();
+        processFilter();
+    }
+
     public void processFilter() {
         LocalDate startDate = reportView.getStartDate().toLocalDate();
         LocalDate endDate = reportView.getEndDate().toLocalDate();
